@@ -41,8 +41,6 @@ export const login = (req, res) => {
         if(err) return res.json(err)
         if(data.length === 0) return res.status(409).json("User not found")
 
-        console.log(data[0].id)
-
         const isPasswordCorrect = bcrypt.compareSync(
             req.body.password,
             data[0].password
